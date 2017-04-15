@@ -6,7 +6,8 @@ const PUBLIC_PATH = 'assets/';
 const BUNDLE_NAME = 'bundle.js';
 
 const config = {
-  entry: path.join(__dirname, SRC_PATH, 'index.js'),
+  context: path.join(__dirname, SRC_PATH),
+  entry: './index.js',
   output: {
     filename: BUNDLE_NAME,
     path: path.join(__dirname, BUILD_PATH),
