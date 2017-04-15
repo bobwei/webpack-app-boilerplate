@@ -1,4 +1,6 @@
 /* global document */
+import './index.scss';
+
 const render = (el, mountNode) => {
   mountNode.parentNode.replaceChild(el, mountNode);
 };

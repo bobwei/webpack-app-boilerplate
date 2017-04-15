@@ -8,6 +8,24 @@ const BUNDLE_NAME = 'bundle.js';
 const config = {
   context: path.join(__dirname, SRC_PATH),
   entry: './index.js',
+  module: {
+    loaders: [
+      {
+        test: /\.(js)$/,
+        loaders: [
+          'eslint-loader',
+        ],
+      },
+      {
+        test: /\.(scss)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+    ],
+  },
   output: {
     filename: BUNDLE_NAME,
     path: path.join(__dirname, BUILD_PATH),
