@@ -1,3 +1,3 @@
-# Javascript Project Template
+# Webpack Boilerplate
 
-This is a javascript project template with batteries included to speed up project initiation.
+This is a webpack boilerplate with batteries included to speed up project initiation.
