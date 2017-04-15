@@ -1,4 +1,3 @@
-/* global document */
 import './index.scss';
 
 const render = (el, mountNode) => {
