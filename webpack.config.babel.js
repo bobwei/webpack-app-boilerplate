@@ -1,4 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import path from 'path';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const SRC_PATH = 'src';
 const BUILD_PATH = 'dist';
@@ -18,14 +20,20 @@ const config = {
       },
       {
         test: /\.(scss)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
+        use: ExtractTextPlugin.extract({
+          use: [
+            'css-loader',
+            'sass-loader',
+          ],
+        }),
       },
     ],
   },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: '[name].css',
+    }),
+  ],
   output: {
     filename: BUNDLE_NAME,
     path: path.join(__dirname, BUILD_PATH),
