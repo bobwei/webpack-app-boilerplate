@@ -14,10 +14,12 @@ const config = {
   module: {
     loaders: [
       {
-        test: /\.(js)$/,
+        test: /\.(js|jsx)$/,
         loaders: [
+          'babel-loader',
           'eslint-loader',
         ],
+        exclude: /node_modules/,
       },
       {
         test: /\.(scss)$/,
