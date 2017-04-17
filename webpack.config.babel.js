@@ -1,5 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, global-require */
 import path from 'path';
+import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const SRC_PATH = 'src';
@@ -21,10 +22,7 @@ const config = {
       {
         test: /\.(scss)$/,
         use: ExtractTextPlugin.extract({
-          use: [
-            'css-loader',
-            'sass-loader',
-          ],
+          use: 'css-loader!postcss-loader!sass-loader?outputStyle=expanded',
         }),
       },
     ],
@@ -32,6 +30,13 @@ const config = {
   plugins: [
     new ExtractTextPlugin({
       filename: '[name].css',
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: () => [
+          require('autoprefixer'),
+        ],
+      },
     }),
   ],
   output: {
