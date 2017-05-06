@@ -1,5 +1,7 @@
 {
-  "presets": ["latest"],
+  "presets": [
+    ["env", {}]
+  ],
   "plugins": [
     "transform-object-rest-spread",
     ["module-resolver", {
